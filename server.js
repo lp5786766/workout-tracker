@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
 
-const db = require('./models');
+// const db = require('./models');
+
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 const app = express();
 
@@ -17,7 +20,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/populatedb', {
   useUnifiedTopology: true,
 });
 
-app.use(require("./routes/apiRoutes"));
+// app.use(require("./routes/apiRoutes"));
+
+// app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

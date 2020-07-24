@@ -4,12 +4,27 @@ const workout = require('../models/workout');
 
 //create workout
 router.post('/workouts', (req, res) => {
-  workout.create({}).then();
+  workout
+    .create({})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 // update/add exercise
-router.put('/workouts', (req, res) => {
-  workout.insert({}).then();
+router.put('/workouts/:id', (req, res) => {
+  // console.log(req);
+  workout
+    .findOneAndUpdate({ _id: req.params.id }, { $push: {} })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 router.get('/stats', (req, res) => {
@@ -23,3 +38,5 @@ router.get('/stats', (req, res) => {
       res.status(400).json(err);
     });
 });
+
+module.exports = router;

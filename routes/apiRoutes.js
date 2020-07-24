@@ -27,7 +27,7 @@ router.put('/workouts/:id', (req, res) => {
     });
 });
 
-router.get('/stats', (req, res) => {
+router.get('/workouts/range', (req, res) => {
   workout
     .find({})
     .sort({ date: -1 })
@@ -38,5 +38,7 @@ router.get('/stats', (req, res) => {
       res.status(400).json(err);
     });
 });
+
+
 
 module.exports = router;

@@ -5,10 +5,10 @@ Deployed of Heroku: https://enigmatic-tundra-66583.herokuapp.com/
 ## Table of Contents
 
 - [Description](#description)
-- [Functionality](##functionality)
-- [Installation](##installation)
-- [Utilized](##utilized)
-- [Contributing](##contributing)
+- [Functionality](#functionality)
+- [Installation](#installation)
+- [Utilized](#utilized)
+- [Contributing](#contributing)
 
 ## Description
 

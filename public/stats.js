@@ -191,6 +191,9 @@ function duration(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
+      if (exercise.duration === null) {
+        console.log("duration null");
+      }
       durations.push(exercise.duration);
     });
   });

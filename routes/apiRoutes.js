@@ -16,10 +16,12 @@ router.post('/workouts', (req, res) => {
 
 // update/add exercise
 router.put('/workouts/:id', (req, res) => {
-  // console.log(req);
   workout
-    .findOneAndUpdate({ _id: req.params.id }, { $push: {} })
+    .updateOne({ _id: req.params.id }, { $push: { exercises: req.body } })
     .then((data) => {
+      console.log(data);
+      // console.log(`request: ${req}`);
+      // console.log(`response: ${res}`);
       res.json(data);
     })
     .catch((err) => {
@@ -27,6 +29,7 @@ router.put('/workouts/:id', (req, res) => {
     });
 });
 
+// get stats
 router.get('/workouts/range', (req, res) => {
   workout
     .find({})
@@ -38,7 +41,5 @@ router.get('/workouts/range', (req, res) => {
       res.status(400).json(err);
     });
 });
-
-
 
 module.exports = router;
